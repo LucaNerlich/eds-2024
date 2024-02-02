@@ -2,8 +2,8 @@
 Your project's description...
 
 ## Environments
-- Preview: https://main--{repo}--{owner}.hlx.page/
-- Live: https://main--{repo}--{owner}.hlx.live/
+- Preview: [https://main--eds-2024--lucanerlich.hlx.page/](https://main--eds-2024--lucanerlich.hlx.page/)
+- Live: [https://main--eds-2024--lucanerlich.hlx.live/](https://main--eds-2024--lucanerlich.hlx.live/)
 
 ## Installation
 
