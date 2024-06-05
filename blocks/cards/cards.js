@@ -1,6 +1,6 @@
-import { createOptimizedPicture } from '../../scripts/aem.js';
+import {createOptimizedPicture, fetchPlaceholders} from '../../scripts/aem.js';
 
-export default function decorate(block) {
+export default async function decorate(block) {
   /* change to ul, li */
   const ul = document.createElement('ul');
   [...block.children].forEach((row) => {
@@ -12,7 +12,13 @@ export default function decorate(block) {
     });
     ul.append(li);
   });
-  ul.querySelectorAll('img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
+  ul.querySelectorAll('img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{width: '750'}])));
   block.textContent = '';
   block.append(ul);
+  
+  // load placeholders from root
+  const placeholders = await fetchPlaceholders('');
+  const placeholderText = document.createElement('p');
+  placeholderText.innerHTML = "Placeholder Value: " + placeholders['moreinfo'];
+  block.appendChild(placeholderText);
 }
